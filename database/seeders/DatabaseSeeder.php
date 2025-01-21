@@ -25,9 +25,9 @@ class DatabaseSeeder extends Seeder
 
         // Seeders de la funcionalidad de pastelerías
         $this->call([
-            \Database\Seeders\ProductTypeSeeder::class,
-            \Database\Seeders\BakerySeeder::class,
-            \Database\Seeders\ProductSeeder::class,
+            ProductTypeSeeder::class,
+            BakerySeeder::class,
+            ProductSeeder::class,
         ]);
 
         // Seeders de la funcionalidad de desayunos
@@ -36,7 +36,9 @@ class DatabaseSeeder extends Seeder
             AllergenSeeder::class,         // Luego los alérgenos
             IngredientSeeder::class,       // Después los ingredientes (que necesitan alérgenos)
             BreakfastSeeder::class,        // Luego los desayunos (necesitan tipos e ingredientes)
-            DeliveryZoneSeeder::class,     // Finalmente las zonas de entrega
+            DeliveryZoneSeeder::class,     // Las zonas de entrega
+            CustomerSeeder::class,         // Los clientes
+            OrderSeeder::class,            // Finalmente los pedidos
         ]);
     }
 }

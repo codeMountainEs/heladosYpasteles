@@ -15,7 +15,7 @@ class Ingredient extends Model
         'image'
     ];
 
-   /* public function allergens()
+    public function allergens()
     {
         return $this->belongsToMany(Allergen::class);
     }
@@ -24,5 +24,5 @@ class Ingredient extends Model
     {
         return $this->belongsToMany(Breakfast::class);
         
-    }*/
+    }
 } 

@@ -122,5 +122,37 @@ DeliveryZoneSeeder - Crea las zonas de entrega
 Cada seeder es independiente y tiene una única responsabilidad, lo que hace el código más mantenible y fácil de entender.
 
 
+# Pedidos desayunos 
+
 
 -hay dos tipos de usuarios admin y clientes que estos solo pueden pedir desayunos desde la aplicacion previo registro , para el registro es necesario nombre, telefono , direccion , recibir un email y confirmar este por el cliente.
+
+
+
+Los recursos de Filament para administrar pedidos
+El sistema de autenticación para clientes
+Las notificaciones por email para verificación
+Las vistas para que los clientes realicen pedidos
+
+
+
+*añade a la direccion codigo postal , poblacion y provincia , la cantidad a solicitar por desayuno es 1 , si se añaden mas cantidades tendra un precio menor por cada persona añadida. 
+
+** Dirección desglosada para mejor organización y validación
+Sistema de descuentos por cantidad automático
+Cálculo automático de precios con descuento
+Atributos computados para mostrar direcciones completas
+¿Quieres que continúe con los recursos de Filament para administrar estos modelos o prefieres que me centre en el sistema de autenticación y registro de clientes?
+
+*crea factories , seeders para los nuevos modelos , 5 ordenes con 1 desayuno y varias personas 
+
+
+** 5 clientes
+5 órdenes, cada una con:
+Un cliente diferente
+El mismo desayuno pero diferentes cantidades (1, 3, 5, 8 y 12 personas)
+Descuentos automáticos según la cantidad:
+1-2 personas: sin descuento
+3-4 personas: 5% descuento
+5-9 personas: 10% descuento
+10+ personas: 15% descuento
