@@ -12,7 +12,8 @@ class BakeryImageFactory extends Factory
         return [
             'bakery_id' => Bakery::factory(),
             'image_path' => fake()->imageUrl(800, 600, 'bakery'),
-            'description' => fake()->sentence(),
+            'title' => fake()->words(3, true),
+            'description' => fake()->paragraph(),
         ];
     }
 } 

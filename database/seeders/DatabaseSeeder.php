@@ -7,6 +7,8 @@ use App\Models\Company;
 use App\Models\Bakery;
 use App\Models\ProductType;
 use App\Models\Product;
+use App\Models\ProductImage;
+use App\Models\BakeryImage;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,8 +22,8 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'admin',
+            'email' => 'admin@admin.com',
         ]);
 
         // Crear la compañía
@@ -53,22 +55,33 @@ class DatabaseSeeder extends Seeder
                 'email' => fake()->email(),
             ]);
 
+            // Crear 5 imágenes para cada pastelería
+            BakeryImage::factory()
+                ->count(5)
+                ->create([
+                    'bakery_id' => $bakery->id,
+                    'title' => "Imagen " . fake()->words(3, true),
+                    'description' => fake()->paragraph(),
+                ]);
+
             // Crear 10 productos de cada tipo para cada pastelería
             foreach (ProductType::all() as $type) {
-                Product::factory()
+                $products = Product::factory()
                     ->count(10)
                     ->create([
                         'bakery_id' => $bakery->id,
                         'product_type_id' => $type->id,
                     ]);
-            }
 
-            // Agregar 5 imágenes para cada pastelería
-            \App\Models\BakeryImage::factory()
-                ->count(5)
-                ->create([
-                    'bakery_id' => $bakery->id
-                ]);
+                // Crear 3 imágenes adicionales para cada producto
+                foreach ($products as $product) {
+                    ProductImage::factory()
+                        ->count(3)
+                        ->create([
+                            'product_id' => $product->id
+                        ]);
+                }
+            }
         }
     }
 }
