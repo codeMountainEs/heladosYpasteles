@@ -18,6 +18,9 @@ class BakeryResource extends Resource
     protected static ?string $model = Bakery::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    
+    protected static ?string $navigationLabel = 'Confiterías';
+
 
     public static function form(Form $form): Form
     {
